@@ -26,6 +26,6 @@ body {
 }
 @layer{
   .btn {
-    @apply p-3 rounded-lg transition-all duration-100 bg-radial-[at_25%_25%] from-zinc-800 to-zinc-900 to-75% hover:text-blue-400 inline-flex align-text-bottom
+    @apply p-3 rounded-lg transition-all duration-100 bg-radial-[at_25%_25%] from-zinc-800 to-zinc-900 to-75% hover:text-blue-400 inline-flex align-text-bottom items-center gap-2 text-gray-300
   }
 }
