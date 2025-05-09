@@ -1,18 +1,11 @@
 import Link from "next/link";
-import { NavBar } from "@/components/ui/navBar";
-import { BurgerMenu } from "@/components/ui/hamburger";
+import Projects from "./projects/page";
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100 py-5">
-      {/* Desktop Navigation */}
-      <NavBar />
-
-      {/* Mobile Navigation */}
-      <BurgerMenu />
-
+    <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100 pt-50 space-y-15 md:space-y-50">
       {/* Hero Section */}
-      <main className="pt-32 pb-16 px-4 max-w-6xl mx-auto">
+      <main className="px-4 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-4">
@@ -69,10 +62,13 @@ export default function Home() {
         </div>
       </main>
 
+      {/* Projects Section */}
+      <Projects />
+
       {/* Footer */}
       <footer className="py-8 bg-gray-900">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2">
             <p className="text-gray-300">
               © 2025 Chongjie. All rights reserved.
             </p>
