@@ -26,7 +26,7 @@ body {
     @apply max-w-6xl mx-auto hidden md:flex items-center justify-between px-5
   }
   .list-item{
-    @apply justify-center gap-10 px-5 flex md:flex-row flex-col-reverse w-full items-center md:justify-start md:items-start
+    @apply justify-center gap-10 px-5 flex lg:flex-row flex-col-reverse w-full items-center lg:justify-start lg:items-start
   }
   .list-description{
     @apply text-center md:text-start space-y-5 

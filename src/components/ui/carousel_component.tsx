@@ -1,67 +1,69 @@
 "use client";
-
+import * as React from "react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "./carousel";
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 export function CarouselComponent({
   photos,
 }: {
   photos: Array<{ src: string; description: string }>;
 }) {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
-  useEffect(() => {
-    if (!api) return;
-
-    const updateCurrent = () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    };
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
 
     setCount(api.scrollSnapList().length);
-    updateCurrent();
-    api.on("select", updateCurrent);
+    setCurrent(api.selectedScrollSnap() + 1);
 
-    return () => {
-      api.off("select", updateCurrent);
-    };
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
   }, [api]);
 
   return (
-    <div className="flex flex-col items-center">
-      <Carousel setApi={setApi}>
+    <div className="mx-auto w-full h-full lg:min-w-lg lg:max-w-lg md:min-w-sm md:max-w-sm">
+      <Carousel
+        setApi={setApi}
+        className="w-full lg:min-w-lg lg:max-w-lg md:min-w-sm md:max-w-sm"
+      >
         <CarouselContent>
           {photos.map((photo, index) => (
-            <CarouselItem key={photo.src + index}>
-              <Image
-                src={photo.src}
-                alt={photo.description}
-                width={500}
-                height={500}
-                quality={100}
-              />
+            <CarouselItem key={index}>
+              <Card className="border-0">
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Image
+                    src={photo.src}
+                    alt={photo.description}
+                    width={500}
+                    height={500}
+                    quality={100}
+                    className="w-full h-full"
+                  />
+                </CardContent>
+              </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-black/90 hidden md:block" />
+        <CarouselPrevious className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-black/90 hidden md:block" />
         <CarouselNext className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-black/90 hidden md:block" />
       </Carousel>
-      {count > 0 && (
-        <div className="bg-black/50 text-white px-2 py-1 rounded-md text-sm w-fit">
-          {current} / {count}
-        </div>
-      )}
+      <div className="py-2 text-center text-sm text-muted-foreground">
+        {current} / {count}
+      </div>
     </div>
   );
 }
-
-export default CarouselComponent;

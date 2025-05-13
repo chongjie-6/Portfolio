@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CarouselComponent from "./carousel_component";
+import { CarouselComponent } from "./carousel_component";
 
 const TODO_APP_IMAGES = [
   { src: "/kanban_todo.png", description: "Kanban Board for Todo App" },
