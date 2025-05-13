@@ -39,7 +39,7 @@ export function CarouselComponent({
   return (
     <div className="flex flex-col items-center">
       <Carousel setApi={setApi}>
-        <CarouselContent className="w-200">
+        <CarouselContent>
           {photos.map((photo, index) => (
             <CarouselItem key={photo.src + index}>
               <Image
@@ -48,7 +48,6 @@ export function CarouselComponent({
                 width={500}
                 height={500}
                 quality={100}
-                className="w-full h-64 sm:h-128 object-center rounded-xl inset-2 inset-ring-sky-500"
               />
             </CarouselItem>
           ))}

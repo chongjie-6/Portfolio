@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CarouselComponent from "./ui/carousel_component";
+import CarouselComponent from "./carousel_component";
 
 const TODO_APP_IMAGES = [
   { src: "/kanban_todo.png", description: "Kanban Board for Todo App" },
@@ -88,7 +88,7 @@ export function ProjectsList() {
       </li>
 
       {/* Team Management Todo App */}
-      <li className="list-item w-full">
+      <li className="list-item">
         <CarouselComponent photos={TODO_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <h2 className="list-title">Team Management App</h2>
@@ -108,7 +108,7 @@ export function ProjectsList() {
       </li>
 
       {/* Food Recommender App */}
-      <li className="list-item w-full">
+      <li className="list-item">
         <CarouselComponent photos={FOOD_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <div className="inline-flex items-center list-title space-x-5">

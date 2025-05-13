@@ -1,5 +1,6 @@
+import { About } from "@/components/ui/about";
+import { Projects } from "@/components/ui/projects";
 import Link from "next/link";
-import Projects from "./projects/page";
 
 export default function Home() {
   return (
@@ -62,8 +63,11 @@ export default function Home() {
         </div>
       </main>
 
+      {/* About Section */}
+      <About></About>
+      
       {/* Projects Section */}
-      <Projects />
+      <Projects></Projects>
 
       {/* Footer */}
       <footer className="py-8 bg-gray-900">
