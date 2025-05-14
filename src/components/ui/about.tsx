@@ -1,13 +1,44 @@
 import Image from "next/image";
-
+import { useEffect, useState } from "react";
 export function About() {
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById("about");
+      if (!element) return;
+
+      const elementBottom = element.offsetTop + element.offsetHeight;
+      const scrollY = window.scrollY + window.innerHeight;
+
+      if (scrollY > elementBottom) {
+        setInView(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="mx-auto mt-5 flex flex-col items-center space-y-20 w-full">
+    <div
+      className="mx-auto mt-5 flex flex-col items-center space-y-20 w-full"
+      id="about"
+    >
       <h2 className="text-6xl font-bold">About</h2>
 
-      <div className="flex flex-col lg:flex-row justify-between gap-10 px-5 w-full max-w-6xl">
+      <div className="flex flex-col lg:flex-row justify-between gap-10 px-5 w-full max-w-6xl items-center">
         {/* Text Section */}
-        <div className="flex flex-col items-center text-base space-y-5 flex-1">
+        <div
+          className={`flex flex-col items-center text-base space-y-5 flex-1 ${
+            !inView && "invisible"
+          } ${inView && "animate-slide-in"}`}
+          id="text-section"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="128"
@@ -20,7 +51,7 @@ export function About() {
           </svg>
 
           <div className="text-left max-w-prose">
-            <p className="text-balance">
+            <p className="text-balance text-xl font-medium">
               Hi, I&apos;m Chongjie — an aspiring full-stack developer with a
               strong interest in building scalable and clean software solutions.
               Whether working in a team or independently, I&apos;m constantly
@@ -31,28 +62,97 @@ export function About() {
         </div>
 
         {/* Skills Section */}
-        <div className="grid grid-cols-3 gap-6 flex-1 place-items-center">
-          {[
-            "/css_logo.svg",
-            "/expressjs-logo.svg",
-            "/nodejs-icon.svg",
-            "/html5-logo.svg",
-            "/javascript-icon.svg",
-            "/nextjs_logo.svg",
-            "/react_logo.svg",
-            "/supabase-logo-icon.svg",
-            "/tailwindcss-icon.svg",
-            "/typescript_logo.svg",
-          ].map((src, index) => (
+        <div className="gap-10 inline-flex items-center">
+          <div
+            className={`space-y-5 ${!inView && "invisible"} ${
+              inView && "animate-fall-up"
+            }`}
+          >
             <Image
-              key={index}
-              src={src}
-              alt="Technology logo"
-              width={64}
-              height={64}
-              className="w-16 h-16"
+              src={"/css_logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="CSS logo"
             />
-          ))}
+            <Image
+              src={"/expressjs-logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="ExpressJS Logo"
+            />
+            <Image
+              src={"/nodejs-icon.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="NodeJS Logo"
+            />
+          </div>
+
+          <div
+            className={`space-y-5 ${!inView && "invisible"} ${
+              inView && "animate-fall-down"
+            }`}
+          >
+            <Image
+              src={"/html5-logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="HTML5 Logo"
+            />
+            <Image
+              src={"/javascript-icon.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="JavaScript Logo"
+            />
+            <Image
+              src={"/nextjs_logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="NextJS Logo"
+            />
+            <Image
+              src={"/react_logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="React Logo"
+            />
+          </div>
+
+          <div
+            className={`space-y-5 ${!inView && "invisible"} ${
+              inView && "animate-fall-up"
+            }`}
+          >
+            <Image
+              src={"/supabase-logo-icon.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="Supabase Logo"
+            />
+            <Image
+              src={"/tailwindcss-icon.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="TailwindCSS Logo"
+            />
+            <Image
+              src={"/typescript_logo.svg"}
+              width={500}
+              height={500}
+              className="w-32 h-32"
+              alt="TypeScript Logo"
+            />
+          </div>
         </div>
       </div>
     </div>

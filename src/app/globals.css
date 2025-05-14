@@ -20,21 +20,103 @@ body {
 
 @layer{
   .btn {
-    @apply p-3 rounded-lg transition-all duration-100 bg-radial-[at_25%_25%] from-zinc-800 to-zinc-900 to-75% hover:text-blue-400 inline-flex align-text-bottom items-center gap-2 text-gray-300
+    @apply cursor-pointer p-3 rounded-lg transition-all duration-100 font-bold hover:text-blue-400 inline-flex align-text-bottom items-center gap-2 text-gray-300
   }
   .nav{
-    @apply max-w-6xl mx-auto hidden md:flex items-center justify-between px-5
+    @apply mx-auto hidden md:flex items-center justify-between px-5
   }
   .list-item{
-    @apply justify-center gap-10 px-5 flex lg:flex-row flex-col-reverse w-full items-center lg:justify-start lg:items-start
+    @apply justify-center gap-10 px-5 flex lg:flex-row flex-col-reverse w-full items-center lg:justify-start
   }
   .list-description{
     @apply text-center md:text-start space-y-5 
   }
   .list-title{
-    @apply font-medium text-4xl
+    @apply font-bold text-4xl border-b-2 w-fit border-violet-500
   }
   .list-text{
     @apply text-2xl
   }
+  .project_link{
+    @apply hover:text-blue-500 hover:-translate-y-1 transition-all duration-75 space-x-2
+  }
+}
+
+
+@layer utilities {
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0.5;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0.5;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes fallInDown {
+    0% {
+      opacity: 0.5;
+      transform: translateY(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes fallInUp {
+    0% {
+      opacity: 0.5;
+      transform: translateY(200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes slideInRight{
+    0% {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 1s ease-in-out;
+  }
+
+  .animate-fall-up {
+    animation: fallInUp 0.7s ease-in-out;
+  }
+
+  .animate-fall-down {
+    animation: fallInDown 0.7s ease-in-out;
+  }
+
+  .animate-slide-in{
+    animation: slideInRight 1s ease-in-out;
+  }
+
 }

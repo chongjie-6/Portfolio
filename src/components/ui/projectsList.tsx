@@ -51,15 +51,18 @@ export function ProjectsList() {
       <li className="list-item">
         <CarouselComponent photos={FITNESS_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
-          <div className="inline-flex items-center list-title space-x-5">
-            <h2>Fitness Tracker</h2>
-            <Link href={"https://fitness-app-bl5i.vercel.app/"}>
+          <div className="list-title">
+            <Link
+              href={"https://fitness-app-bl5i.vercel.app/"}
+              className="inline-flex items-center project_link"
+            >
+              <h2>Fitness Tracker</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
                 fill="currentColor"
-                className="bi bi-arrow-right hover:text-blue-500 hover:-translate-y-1 transition-all duration-75"
+                className="bi bi-arrow-right"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -111,9 +114,12 @@ export function ProjectsList() {
       <li className="list-item">
         <CarouselComponent photos={FOOD_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
-          <div className="inline-flex items-center list-title space-x-5">
-            <h2>Food Recommender</h2>
-            <Link href={"https://my-app-azure-tau.vercel.app"}>
+          <div className="list-title">
+            <Link
+              href={"https://my-app-azure-tau.vercel.app"}
+              className="inline-flex items-center project_link"
+            >
+              <h2>Food Recommender</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"

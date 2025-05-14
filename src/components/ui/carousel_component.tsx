@@ -35,10 +35,10 @@ export function CarouselComponent({
   }, [api]);
 
   return (
-    <div className="mx-auto w-full h-full lg:min-w-lg lg:max-w-lg md:min-w-sm md:max-w-sm">
+    <div className="mx-auto w-full h-full lg:min-w-xl lg:max-w-xl md:min-w-sm md:max-w-sm">
       <Carousel
         setApi={setApi}
-        className="w-full lg:min-w-lg lg:max-w-lg md:min-w-sm md:max-w-sm"
+        className="w-full lg:min-w-xl lg:max-w-xl md:min-w-sm md:max-w-sm"
       >
         <CarouselContent>
           {photos.map((photo, index) => (
@@ -58,8 +58,8 @@ export function CarouselComponent({
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-black/90 hidden md:block" />
-        <CarouselNext className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-black/90 hidden md:block" />
+        <CarouselPrevious className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-violet-500 hidden md:block " />
+        <CarouselNext className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-violet-500 hidden md:block" />
       </Carousel>
       <div className="py-2 text-center text-sm text-muted-foreground">
         {current} / {count}

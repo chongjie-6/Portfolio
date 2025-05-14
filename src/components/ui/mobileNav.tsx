@@ -9,7 +9,7 @@ export function MobileNav() {
     setClick((prev) => !prev);
   };
   return (
-    <nav className="md:hidden pt-5">
+    <nav className="md:hidden pt-5 ">
       <div
         className="px-5 flex justify-between items-center"
         onClick={handleClick}
