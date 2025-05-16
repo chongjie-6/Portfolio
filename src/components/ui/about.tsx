@@ -8,7 +8,7 @@ export function About() {
       const element = document.getElementById("about");
       if (!element) return;
 
-      const elementBottom = element.offsetTop + element.offsetHeight;
+      const elementBottom = element.offsetTop + element.offsetHeight - 300;
       const scrollY = window.scrollY + window.innerHeight;
 
       if (scrollY > elementBottom) {
@@ -36,7 +36,7 @@ export function About() {
         <div
           className={`flex flex-col items-center text-base space-y-5 flex-1 ${
             !inView && "invisible"
-          } ${inView && "animate-slide-in"}`}
+          } ${inView && "animate-slide-in-right"}`}
           id="text-section"
         >
           <svg

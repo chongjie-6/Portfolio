@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CarouselComponent } from "./carousel_component";
+import { useEffect, useState } from "react";
 
 const TODO_APP_IMAGES = [
   { src: "/kanban_todo.png", description: "Kanban Board for Todo App" },
@@ -45,16 +46,69 @@ const FOOD_APP_IMAGES = [
 ];
 
 export function ProjectsList() {
+  const [projectOne, setProjectOne] = useState(false);
+  const [projectTwo, setProjectTwo] = useState(false);
+  const [projectThree, setProjectThree] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const projectOne = document.getElementById("project_one");
+      const projectTwo = document.getElementById("project_two");
+      const projectThree = document.getElementById("project_three");
+
+      if (projectOne) {
+        const elementBottom =
+          projectOne.offsetTop + projectOne.offsetHeight - 400;
+        const scrollY = window.scrollY + window.innerHeight;
+
+        if (scrollY > elementBottom) {
+          setProjectOne(true);
+        }
+      }
+
+      if (projectTwo) {
+        const elementBottom =
+          projectTwo.offsetTop + projectTwo.offsetHeight - 400;
+        const scrollY = window.scrollY + window.innerHeight;
+
+        if (scrollY > elementBottom) {
+          setProjectTwo(true);
+        }
+      }
+
+      if (projectThree) {
+        const elementBottom =
+          projectThree.offsetTop + projectThree.offsetHeight - 400;
+        const scrollY = window.scrollY + window.innerHeight;
+
+        if (scrollY > elementBottom) {
+          setProjectThree(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <ul className=" w-full mt-5 text-center space-y-30">
+    <ul className=" w-full mt-5 space-y-30">
       {/* Fitness App */}
-      <li className="list-item">
+      <li
+        className={`list-item ${projectOne && `animate-slide-in-right`} ${
+          !projectOne && `invisible`
+        }`}
+        id="project_one"
+      >
         <CarouselComponent photos={FITNESS_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <div className="list-title">
             <Link
               href={"https://fitness-app-bl5i.vercel.app/"}
-              className="inline-flex items-center project_link"
+              className="flex items-center project_link"
             >
               <h2>Fitness Tracker</h2>
               <svg
@@ -91,7 +145,12 @@ export function ProjectsList() {
       </li>
 
       {/* Team Management Todo App */}
-      <li className="list-item">
+      <li
+        className={`list-item ${projectTwo && `animate-slide-in-left`} ${
+          !projectTwo && `invisible`
+        }`}
+        id="project_two"
+      >
         <CarouselComponent photos={TODO_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <h2 className="list-title">Team Management App</h2>
@@ -111,7 +170,12 @@ export function ProjectsList() {
       </li>
 
       {/* Food Recommender App */}
-      <li className="list-item">
+      <li
+        className={`list-item ${projectThree && `animate-slide-in-right`} ${
+          !projectThree && `invisible`
+        }`}
+        id="project_three"
+      >
         <CarouselComponent photos={FOOD_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <div className="list-title">

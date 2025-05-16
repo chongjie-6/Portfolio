@@ -7,7 +7,9 @@ export function Projects() {
       id="projects"
     >
       <div className="font-bold text-center space-y-2">
-        <h2 className="text-lg text-gray-500 animate-fade-in-down">Browse My Recent</h2>
+        <h2 className="text-lg text-gray-500 animate-fade-in-down">
+          Browse My Recent
+        </h2>
         <h2 className="text-6xl animate-fade-in-up">Projects</h2>
       </div>
       <ProjectsList />

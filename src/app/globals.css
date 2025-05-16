@@ -26,13 +26,13 @@ body {
     @apply mx-auto hidden md:flex items-center justify-between px-5
   }
   .list-item{
-    @apply justify-center gap-10 px-5 flex lg:flex-row flex-col-reverse w-full items-center lg:justify-start
+    @apply gap-10 px-5 flex flex-col-reverse items-center lg:flex-row justify-center
   }
   .list-description{
-    @apply text-center md:text-start space-y-5 
+    @apply lg:text-start space-y-5 items-center text-center max-w-xl
   }
   .list-title{
-    @apply font-bold text-4xl border-b-2 w-fit border-violet-500
+    @apply font-bold text-4xl border-b-2 w-fit border-violet-500 lg:text-left mx-auto lg:mx-0
   }
   .list-text{
     @apply text-2xl
@@ -99,6 +99,16 @@ body {
     }
   }
 
+  @keyframes slideInLeft{
+    0% {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
   .animate-fade-in-up {
     animation: fadeInUp 1s ease-in-out;
   }
@@ -115,8 +125,12 @@ body {
     animation: fallInDown 0.7s ease-in-out;
   }
 
-  .animate-slide-in{
+  .animate-slide-in-right{
     animation: slideInRight 1s ease-in-out;
+  }
+
+  .animate-slide-in-left{
+    animation: slideInLeft 1s ease-in-out;
   }
 
 }
