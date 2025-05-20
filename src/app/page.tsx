@@ -27,8 +27,8 @@ export default function Home() {
       <main className="px-4 max-w-6xl mx-auto md:py-60">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-4">
-              Hi, I&apos;m <span className="text-blue-500">Chongjie</span>
+            <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
+              Hi, I&apos;m <span className="text-blue-500">Chongjie </span>
             </h1>
 
             <p className="text-lg text-gray-300 mb-8 max-w-lg text-balance">

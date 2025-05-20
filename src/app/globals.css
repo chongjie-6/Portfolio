@@ -40,6 +40,15 @@ body {
   .project_link{
     @apply hover:text-blue-500 hover:-translate-y-1 transition-all duration-75 space-x-2
   }
+  .typewriter{
+    @apply inline-block relative w-fit overflow-hidden whitespace-nowrap m-0;
+    animation: typing 2s steps(32, end) forwards;
+  }
+  .typewriter::after {
+    content: "";
+    @apply absolute right-0 top-0 h-full w-1 bg-white;
+    animation: blinkCaret 0.75s step-end infinite;
+  }
 }
 
 
@@ -109,6 +118,17 @@ body {
       transform: translateX(0px);
     }
   }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blinkCaret {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 1s ease-in-out;
   }

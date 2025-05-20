@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="py-8 bg-gray-900">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-2">
-          <p className="text-gray-300">© 2025 Chongjie. All rights reserved.</p>
+          <p className="text-gray-300">© 2025 Chongjie</p>
           <div className="flex items-center gap-4">
             <Link
               href={"https://github.com/chongjie-6"}
