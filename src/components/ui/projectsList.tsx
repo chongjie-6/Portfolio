@@ -11,36 +11,36 @@ const TODO_APP_IMAGES = [
 
 const FITNESS_APP_IMAGES = [
   {
-    src: "/fitness_dashboard.png",
+    src: "/fitness_dashboard.PNG",
     description: "Landing Page for Fitness Tracker",
   },
   {
-    src: "/fitness_logged_in.png",
+    src: "/fitness_logged_in.PNG",
     description: "Logged in View for Fitness Tracker",
   },
-  { src: "/fitness_workouts.png", description: "Tracked Workouts view" },
+  { src: "/fitness_workouts.PNG", description: "Tracked Workouts view" },
   {
-    src: "/fitness_create_session_exercises.png",
+    src: "/fitness_create_session_exercises.PNG",
     description: "Modal for adding an exercise to a session",
   },
   {
-    src: "/fitness_create_exercises.png",
+    src: "/fitness_create_exercises.PNG",
     description: "Modal for creating exercises",
   },
 ];
 
 const FOOD_APP_IMAGES = [
-  { src: "/food_dashboard.png", description: "Dashboard for Food Recommender" },
+  { src: "/food_dashboard.PNG", description: "Dashboard for Food Recommender" },
   {
-    src: "/food_nearby.png",
+    src: "/food_nearby.PNG",
     description: "Nearby search for cuisines and restaurants",
   },
   {
-    src: "/food_page.png",
+    src: "/food_page.PNG",
     description: "Overview of restaurant with details on the restuarant",
   },
   {
-    src: "/food_search.png",
+    src: "/food_search.PNG",
     description: "Search functionality to search for particular restaurant",
   },
 ];
