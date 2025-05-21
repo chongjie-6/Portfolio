@@ -26,13 +26,13 @@ body {
     @apply mx-auto hidden md:flex items-center justify-between px-5
   }
   .list-item{
-    @apply gap-10 px-5 flex flex-col-reverse items-center lg:flex-row justify-center
+    @apply gap-10 px-5 flex flex-col-reverse items-center xl:flex-row justify-center
   }
   .list-description{
-    @apply lg:text-start space-y-5 items-center text-center max-w-xl
+    @apply xl:text-start space-y-5 items-center text-center max-w-xl
   }
   .list-title{
-    @apply font-bold text-4xl border-b-2 w-fit border-violet-500 lg:text-left mx-auto lg:mx-0
+    @apply font-bold text-4xl border-b-2 w-fit border-violet-500 xl:text-left mx-auto xl:mx-0
   }
   .list-text{
     @apply text-2xl

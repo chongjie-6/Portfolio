@@ -4,44 +4,45 @@ import { useEffect, useState } from "react";
 
 const TODO_APP_IMAGES = [
   { src: "/kanban_todo.png", description: "Kanban Board for Todo App" },
-  { src: "/calendar_todo.png", description: "Calendar View for Todo App" },
   { src: "/dashboard_todo.png", description: "Dashboard for Todo App" },
+  { src: "/list_view_todo.png", description: "List View for Todo App" },
   { src: "/achievments_todo.png", description: "Achievements for Todo App" },
+  { src: "/calendar_todo.png", description: "Calendar View for Todo App" },
 ];
 
 const FITNESS_APP_IMAGES = [
   {
-    src: "/fitness_dashboard.PNG",
+    src: "/fitness_landing.PNG",
     description: "Landing Page for Fitness Tracker",
   },
   {
-    src: "/fitness_logged_in.PNG",
+    src: "/fitness_dashboard.PNG",
     description: "Logged in View for Fitness Tracker",
   },
-  { src: "/fitness_workouts.PNG", description: "Tracked Workouts view" },
+  { src: "/fitness_session.PNG", description: "Tracked Workouts view" },
   {
-    src: "/fitness_create_session_exercises.PNG",
+    src: "/fitness_session_exercise.PNG",
     description: "Modal for adding an exercise to a session",
   },
   {
-    src: "/fitness_create_exercises.PNG",
+    src: "/fitness_exercise.PNG",
     description: "Modal for creating exercises",
   },
 ];
 
 const FOOD_APP_IMAGES = [
-  { src: "/food_dashboard.PNG", description: "Dashboard for Food Recommender" },
+  { src: "/food_landing.PNG", description: "Dashboard for Food Recommender" },
   {
     src: "/food_nearby.PNG",
     description: "Nearby search for cuisines and restaurants",
   },
   {
-    src: "/food_page.PNG",
-    description: "Overview of restaurant with details on the restuarant",
+    src: "/food_search_results.PNG",
+    description: "Search functionality to search for particular restaurant",
   },
   {
-    src: "/food_search.PNG",
-    description: "Search functionality to search for particular restaurant",
+    src: "/food_result.PNG",
+    description: "Overview of restaurant with details on the restuarant",
   },
 ];
 

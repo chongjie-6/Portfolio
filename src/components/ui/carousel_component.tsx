@@ -35,23 +35,21 @@ export function CarouselComponent({
   }, [api]);
 
   return (
-    <div className="mx-auto w-full h-full lg:min-w-xl lg:max-w-xl md:min-w-sm md:max-w-sm">
+    <div className="max-w-3xl">
       <Carousel
         setApi={setApi}
-        className="w-full lg:min-w-xl lg:max-w-xl md:min-w-sm md:max-w-sm"
       >
         <CarouselContent>
           {photos.map((photo, index) => (
             <CarouselItem key={index}>
-              <Card className="border-0">
-                <CardContent className="flex aspect-square items-center justify-center p-6">
+              <Card>
+                <CardContent className="flex items-center justify-center p-6">
                   <Image
                     src={photo.src}
                     alt={photo.description}
-                    width={500}
-                    height={500}
+                    width={1920}
+                    height={1080}
                     quality={100}
-                    className="w-full h-full"
                   />
                 </CardContent>
               </Card>
