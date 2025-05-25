@@ -5,7 +5,7 @@ import { Footer } from "@/components/ui/footer";
 import { MobileNav } from "@/components/ui/mobileNav";
 import { NavBar } from "@/components/ui/navBar";
 import { Projects } from "@/components/ui/projects";
-import { ArrowRight, Briefcase, Mail } from "lucide-react";
+import { ArrowRight, Briefcase, ChevronDown, Mail } from "lucide-react";
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -15,7 +15,7 @@ export default function Home() {
   };
   return (
     <div
-      className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 space-y-15 md:space-y-50"
+      className="bg-black/20 text-gray-100 space-y-15 md:space-y-50"
       id="home"
     >
       {/* Desktop Navigation */}
@@ -25,14 +25,14 @@ export default function Home() {
       <MobileNav />
 
       {/* Hero Section */}
-      <main className="px-4 max-w-6xl mx-auto md:py-60">
+      <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
 
-        <div className="flex flex-col items-center gap-12 z-10 relative">
+        <div className="flex flex-col items-center gap-12 z-10 relative max-w-6xl mx-auto pt-60">
           <div className="text-center space-y-10">
             <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
               Hi, I&apos;m <span className="text-blue-500">Chongjie</span>
@@ -75,6 +75,9 @@ export default function Home() {
               C
             </div>
           </div>
+        </div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown size={32} className="text-gray-400" />
         </div>
       </main>
 
