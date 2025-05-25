@@ -1,3 +1,4 @@
+import { Mail } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -7,30 +8,47 @@ export function Contact() {
 
   return (
     <div
-      className="max-w-7xl mx-auto items-center text-center justify-center mt-5 flex flex-col space-y-10 px-5"
+      className="max-w-4xl mx-auto items-center text-center justify-center mt-5 flex flex-col space-y-10 relative"
       id="contact"
     >
       <h2 className="text-6xl">Contact Me</h2>
-      <p className="text-xl max-w-xl">
-        Want to work together? Leave an email and I&apos;ll get back to you as
-        soon as possible!
+      <p className="text-xl">
+        Want to work together? I&apos;d love to hear from you. Leave an email
+        and I&apos;ll get back to you as soon as possible!
       </p>
-      <div className="space-y-2 w-full flex flex-col items-center max-w-xl">
-        <input
-          onChange={(e) => setSubject(e.target.value)}
-          placeholder="Subject"
-          className="w-full bg-gray-600 py-2 px-3"
-        ></input>
-        <textarea
-          onChange={(e) => setBody(e.target.value)}
-          placeholder="Message"
-          className="w-full bg-gray-600 py-2 px-3 field-sizing-content min-h-40 max-h-40 resize-none whitespace-break-spaces"
-        ></textarea>
+
+      <div className="space-y-6 w-full text-start bg-gray-800 p-8 rounded-md">
+        <div>
+          <label className="text-sm font-bold text-gray-300">Subject</label>
+          <input
+            type="text"
+            name="subject"
+            onChange={(e) => setSubject(e.target.value)}
+            placeholder="What's this about?"
+            className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-bold text-gray-300">Message</label>
+          <textarea
+            name="message"
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="Tell me about your project or just say hello!"
+            rows={6}
+            className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-400 resize-none"
+          />
+        </div>
+
         <Link
-          className="px-2 italic border-b-2 ml-auto cursor-pointer hover:text-blue-500 transition-all duration-300"
-          href={`mailto:chongjiechen@outlook.com?subject=${subject}&body=${body.replaceAll("\n","%0D%0A")}`}
+          href={`mailto:chongjiechen@outlook.com?subject=${subject}&body=${body.replaceAll(
+            "\n",
+            "%0D%0A"
+          )}`}
+          className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 flex items-center justify-center space-x-2"
         >
-          Submit
+          <Mail size={20} />
+          <span>Send Message</span>
         </Link>
       </div>
     </div>

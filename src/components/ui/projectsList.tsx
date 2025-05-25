@@ -105,6 +105,7 @@ export function ProjectsList() {
         id="project_one"
       >
         <CarouselComponent photos={FITNESS_APP_IMAGES}></CarouselComponent>
+        
         <div className="list-description">
           <div className="list-title">
             <Link
