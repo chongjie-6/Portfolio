@@ -5,6 +5,7 @@ import { Footer } from "@/components/ui/footer";
 import { MobileNav } from "@/components/ui/mobileNav";
 import { NavBar } from "@/components/ui/navBar";
 import { Projects } from "@/components/ui/projects";
+import { ArrowRight, Briefcase, Mail } from "lucide-react";
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -14,7 +15,7 @@ export default function Home() {
   };
   return (
     <div
-      className="bg-gradient-to-b from-gray-900 to-gray-800 text-gray-100 space-y-15 md:space-y-50"
+      className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 space-y-15 md:space-y-50"
       id="home"
     >
       {/* Desktop Navigation */}
@@ -25,50 +26,46 @@ export default function Home() {
 
       {/* Hero Section */}
       <main className="px-4 max-w-6xl mx-auto md:py-60">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 text-center md:text-left">
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+
+        <div className="flex flex-col items-center gap-12 z-10 relative">
+          <div className="text-center space-y-10">
             <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
-              Hi, I&apos;m <span className="text-blue-500">Chongjie </span>
+              Hi, I&apos;m <span className="text-blue-500">Chongjie</span>
             </h1>
 
-            <p className="text-lg text-gray-300 mb-8 max-w-lg text-balance">
+            <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
               I craft engaging digital experiences with modern technologies.
-              Let&apos;s build something amazing together.
+              <span className="text-blue-400 font-semibold">
+                {" "}
+                Let&apos;s build something amazing together.
+              </span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <div
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
                 onClick={() => scrollToSection("projects")}
-                className="cursor-pointer px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-103 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center space-x-2"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-briefcase"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5" />
-                </svg>
-                View My Work
-              </div>
-              <div
+                <Briefcase size={20} />
+                <span>View My Work</span>
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
+              </button>
+
+              <button
                 onClick={() => scrollToSection("contact")}
-                className="cursor-pointer px-6 py-3 bg-gray-700 hover:bg-gray-600 font-medium rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="px-8 py-4 border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white font-medium rounded-full transition-all duration-300 transform hover:scale-103 hover:bg-white/5 flex items-center justify-center space-x-2"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-envelope"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                </svg>
-                Get In Touch
-              </div>
+                <Mail size={20} />
+                <span>Get In Touch</span>
+              </button>
             </div>
           </div>
 
