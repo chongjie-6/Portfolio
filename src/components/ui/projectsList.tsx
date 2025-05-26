@@ -105,7 +105,7 @@ export function ProjectsList() {
         id="project_one"
       >
         <CarouselComponent photos={FITNESS_APP_IMAGES}></CarouselComponent>
-        
+
         <div className="list-description">
           <div className="list-title">
             <Link
@@ -128,21 +128,26 @@ export function ProjectsList() {
               </svg>
             </Link>
           </div>
-          <p className="list-text">
-            Developed with:{" "}
-            <span className="text-red-500 text-xl text-balance">
-              TypeScript NextJS React Vercel PostgreSQL TailwindCSS ShadCn
-              Bootstrap
-              <br></br>
-            </span>
-            <span className="text-xl">
-              Born from my passion for fitness, this app provides a streamlined
-              experience for workout enthusiasts. It offers a clean, intuitive
-              platform where users can effortlessly track their exercises,
-              monitor progress, and implement progressive overload—the key to
-              consistent strength gains and fitness improvement.
-            </span>
+          <p>
+            Born from my passion for fitness, this app provides a streamlined
+            experience for workout enthusiasts. It offers a clean, intuitive
+            platform where users can effortlessly track their exercises, monitor
+            progress, and implement progressive overload—the key to consistent
+            strength gains and fitness improvement.
           </p>
+          <div className="skills_section">
+            {[
+              "TypeScript",
+              "Next.js",
+              "React",
+              "PostgreSQL",
+              "TailwindCSS",
+            ].map((tech, index) => (
+              <p key={index} className="skills_tab">
+                {tech}
+              </p>
+            ))}
+          </div>
         </div>
       </li>
 
@@ -156,18 +161,20 @@ export function ProjectsList() {
         <CarouselComponent photos={TODO_APP_IMAGES}></CarouselComponent>
         <div className="list-description">
           <h2 className="list-title">Team Management App</h2>
-          <p className="list-text">
-            Developed with:{" "}
-            <span className="text-red-500 text-xl text-balance">
-              TypeScript NextJS React Vercel PostgreSQL TailwindCSS MaterialUI
-              <br></br>
-            </span>
-            <span className="text-xl">
-              A team management application that streamlines task organization,
-              allowing members to establish priorities and track deadlines
-              collaboratively.
-            </span>
+          <p>
+            A team management application that streamlines task organization,
+            allowing members to establish priorities and track deadlines
+            collaboratively.
           </p>
+          <div className="skills_section">
+            {["TypeScript", "NextJS", "React", "PostgreSQL", "MaterialUI"].map(
+              (tech, index) => (
+                <p key={index} className="skills_tab">
+                  {tech}
+                </p>
+              )
+            )}
+          </div>
         </div>
       </li>
 
@@ -201,17 +208,23 @@ export function ProjectsList() {
               </svg>
             </Link>
           </div>
-          <p className="list-text">
-            Developed with:{" "}
-            <span className="text-red-500 text-xl text-balance">
-              TypeScript React Vercel NodeJS ExpressJs Google Maps API
-              <br></br>
-            </span>
-            <span className="text-xl">
-              A Food Recommending application designed to help users discover
-              local and popular cuisines utilising geolocation services.
-            </span>
+          <p>
+            A Food Recommending application designed to help users discover
+            local and popular cuisines utilising geolocation services.
           </p>
+          <div className="skills_section">
+            {[
+              "TypeScript",
+              "React",
+              "NodeJS",
+              "ExpressJs",
+              "Google Maps API",
+            ].map((tech, index) => (
+              <p key={index} className="skills_tab">
+                {tech}
+              </p>
+            ))}
+          </div>
         </div>
       </li>
     </ul>

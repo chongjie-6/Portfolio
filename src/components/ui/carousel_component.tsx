@@ -35,15 +35,13 @@ export function CarouselComponent({
   }, [api]);
 
   return (
-    <div className="max-w-3xl">
-      <Carousel
-        setApi={setApi}
-      >
+    <div>
+      <Carousel setApi={setApi}>
         <CarouselContent>
           {photos.map((photo, index) => (
             <CarouselItem key={index}>
               <Card className="border-0">
-                <CardContent className="flex items-center justify-center p-6">
+                <CardContent className="flex items-center justify-center">
                   <Image
                     src={photo.src}
                     alt={photo.description}
@@ -59,7 +57,7 @@ export function CarouselComponent({
         <CarouselPrevious className="absolute left-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-violet-500 hidden md:block " />
         <CarouselNext className="absolute right-8 top-1/2 -translate-y-1/2 bg-black/70 p-2 rounded-full shadow hover:bg-violet-500 hidden md:block" />
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
+      <div className="text-center text-sm text-muted-foreground">
         {current} / {count}
       </div>
     </div>
