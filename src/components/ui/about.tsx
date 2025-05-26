@@ -29,7 +29,7 @@ export function About() {
       className="mx-auto mt-5 flex flex-col items-center space-y-20 w-full"
       id="about"
     >
-      <h2 className="text-6xl font-bold">About</h2>
+      <h2 className="text-6xl font-bold">About <span className="text-blue-500">Me</span></h2>
 
       <div className="flex flex-col lg:flex-row justify-between gap-10 px-5 w-full max-w-6xl items-center">
         {/* Text Section */}

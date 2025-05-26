@@ -10,7 +10,7 @@ export function Projects() {
         <h2 className="text-lg text-gray-500 animate-fade-in-down">
           Browse My Recent
         </h2>
-        <h2 className="text-6xl animate-fade-in-up">Projects</h2>
+        <h2 className="text-6xl animate-fade-in-up text-blue-500">Projects</h2>
       </div>
       <ProjectsList />
     </div>

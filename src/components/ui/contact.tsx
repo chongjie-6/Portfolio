@@ -12,7 +12,7 @@ export function Contact() {
       id="contact"
     >
       <h2 className="text-6xl">Contact Me</h2>
-      <p className="text-xl">
+      <p className="text-xl max-w-2xl mx-auto leading-relaxed ">
         Want to work together? I&apos;d love to hear from you. Leave an email
         and I&apos;ll get back to you as soon as possible!
       </p>
