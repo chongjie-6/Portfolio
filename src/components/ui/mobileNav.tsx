@@ -9,7 +9,7 @@ export function MobileNav() {
     setClick((prev) => !prev);
   };
   return (
-    <nav className="md:hidden pt-5 ">
+    <nav className="fixed md:hidden block py-5 z-20 bg-black/20 backdrop-blur-md border-b border-white/10 w-full">
       <div
         className="px-5 flex justify-between items-center"
         onClick={handleClick}
@@ -44,7 +44,7 @@ export function MobileNav() {
       </div>
 
       {/* Drop down of the Hamburger Menu  */}
-      <div className={`flex-col ${clicked ? "flex" : "hidden"} mt-5`}>
+      <div className={`flex-col ${clicked ? "flex" : "hidden"}`}>
         <Links></Links>
       </div>
     </nav>

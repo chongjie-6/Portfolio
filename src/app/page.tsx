@@ -18,12 +18,6 @@ export default function Home() {
       className="bg-black/20 text-gray-100 space-y-15 md:space-y-50"
       id="home"
     >
-      {/* Desktop Navigation */}
-      <NavBar />
-
-      {/* Mobile Navigation */}
-      <MobileNav />
-
       {/* Hero Section */}
       <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen">
         <div className="absolute inset-0">
@@ -31,9 +25,14 @@ export default function Home() {
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
         </div>
+        {/* Desktop Navigation */}
+        <NavBar />
 
-        <div className="flex flex-col items-center gap-12 z-10 relative max-w-6xl mx-auto pt-60">
-          <div className="text-center space-y-10">
+        {/* Mobile Navigation */}
+        <MobileNav />
+
+        <div className="flex flex-col items-center gap-12 z-10 relative max-w-6xl mx-auto md:pt-60 pt-30">
+          <div className="text-center space-y-10">  
             <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
               Hi, I&apos;m <span className="text-blue-500">Chongjie</span>
             </h1>
@@ -70,14 +69,14 @@ export default function Home() {
           </div>
 
           {/* Hero image/avatar */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-500 text-6xl font-bold">
+          <div className="flex flex-col justify-center items-center space-y-10">
+            <div className="hidden w-64 h-64 md:w-80 md:h-80 rounded-full bg-blue-100 dark:bg-blue-900 sm:flex items-center justify-center text-blue-500 text-6xl font-bold">
               C
             </div>
+            <div className="animate-bounce">
+              <ChevronDown size={64} className="text-gray-400" />
+            </div>
           </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={64} className="text-gray-400" />
         </div>
       </main>
 
