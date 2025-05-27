@@ -1,5 +1,55 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
+const SKILLS = [
+  { name: "CSS", logo: "/css_logo.svg", color: "from-blue-500 to-blue-600" },
+  {
+    name: "HTML5",
+    logo: "/html5-logo.svg",
+    color: "from-orange-500 to-red-500",
+  },
+  {
+    name: "Supabase",
+    logo: "/supabase-logo-icon.svg",
+    color: "from-green-500 to-emerald-500",
+  },
+  {
+    name: "Express.js",
+    logo: "/expressjs-logo.svg",
+    color: "from-gray-600 to-gray-700",
+  },
+  {
+    name: "JavaScript",
+    logo: "/javascript-icon.svg",
+    color: "from-yellow-400 to-yellow-500",
+  },
+  {
+    name: "TailwindCSS",
+    logo: "/tailwindcss-icon.svg",
+    color: "from-cyan-400 to-blue-500",
+  },
+  {
+    name: "Node.js",
+    logo: "/nodejs-icon.svg",
+    color: "from-green-600 to-green-700",
+  },
+  {
+    name: "Next.js",
+    logo: "/nextjs_logo.svg",
+    color: "from-gray-800 to-black",
+  },
+  {
+    name: "TypeScript",
+    logo: "/typescript_logo.svg",
+    color: "from-blue-600 to-blue-700",
+  },
+  {
+    name: "React",
+    logo: "/react_logo.svg",
+    color: "from-cyan-400 to-blue-500",
+  },
+];
+
 export function About() {
   const [inView, setInView] = useState(false);
 
@@ -8,7 +58,7 @@ export function About() {
       const element = document.getElementById("about");
       if (!element) return;
 
-      const elementBottom = element.offsetTop + element.offsetHeight - 300;
+      const elementBottom = element.offsetTop + element.offsetHeight + 100;
       const scrollY = window.scrollY + window.innerHeight;
 
       if (scrollY > elementBottom) {
@@ -25,11 +75,13 @@ export function About() {
   }, []);
 
   return (
-    <div
-      className="mx-auto mt-5 flex flex-col items-center space-y-20 w-full"
-      id="about"
-    >
-      <h2 className="text-6xl font-bold">About <span className="text-blue-500">Me</span></h2>
+    <div className="mx-auto mt-5 flex flex-col items-center space-y-20 w-full">
+      <h2 id="about" className="text-6xl font-bold">
+        About{" "}
+        <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          Me
+        </span>
+      </h2>
 
       <div className="flex flex-col lg:flex-row justify-between gap-10 px-5 w-full max-w-6xl items-center">
         {/* Text Section */}
@@ -62,96 +114,43 @@ export function About() {
         </div>
 
         {/* Skills Section */}
-        <div className="gap-10 inline-flex items-center">
-          <div
-            className={`space-y-5 ${!inView && "invisible"} ${
-              inView && "animate-fall-up"
-            }`}
-          >
-            <Image
-              src={"/css_logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="CSS logo"
-            />
-            <Image
-              src={"/expressjs-logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="ExpressJS Logo"
-            />
-            <Image
-              src={"/nodejs-icon.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="NodeJS Logo"
-            />
-          </div>
+        <div
+          className={`text-center space-y-10 text-3xl font-semibold ${
+            !inView && "invisible"
+          } ${inView && "animate-slide-in-left"} `}
+        >
+          <h3>Technology I&apos;ve Used</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {SKILLS.map((skill) => (
+              <div
+                key={skill.name}
+                className={`group relative p-6 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl hover:border-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer`}
+              >
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                />
 
-          <div
-            className={`space-y-5 ${!inView && "invisible"} ${
-              inView && "animate-fall-down"
-            }`}
-          >
-            <Image
-              src={"/html5-logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="HTML5 Logo"
-            />
-            <Image
-              src={"/javascript-icon.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="JavaScript Logo"
-            />
-            <Image
-              src={"/nextjs_logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="NextJS Logo"
-            />
-            <Image
-              src={"/react_logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="React Logo"
-            />
-          </div>
+                <div className="relative flex flex-col items-center space-y-3">
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <Image
+                      src={skill.logo}
+                      width={48}
+                      height={48}
+                      className="group-hover:scale-110 transition-transform duration-300"
+                      alt={`${skill.name} logo`}
+                    />
+                  </div>
+                  <span className="text-sm font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
+                    {skill.name}
+                  </span>
+                </div>
 
-          <div
-            className={`space-y-5 ${!inView && "invisible"} ${
-              inView && "animate-fall-up"
-            }`}
-          >
-            <Image
-              src={"/supabase-logo-icon.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="Supabase Logo"
-            />
-            <Image
-              src={"/tailwindcss-icon.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="TailwindCSS Logo"
-            />
-            <Image
-              src={"/typescript_logo.svg"}
-              width={500}
-              height={500}
-              className="w-32 h-32"
-              alt="TypeScript Logo"
-            />
+                {/* Hover glow effect */}
+                <div
+                  className={`absolute -inset-0.5 bg-gradient-to-r ${skill.color} rounded-2xl blur opacity-0 group-hover:opacity-50 transition-opacity duration-300 -z-10`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

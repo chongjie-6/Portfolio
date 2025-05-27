@@ -11,7 +11,7 @@ export function Contact() {
       className="max-w-4xl mx-auto items-center text-center justify-center mt-5 flex flex-col space-y-10 relative"
       id="contact"
     >
-      <h2 className="text-6xl">Contact <span className="text-blue-500">Me</span></h2>
+      <h2 className="text-6xl font-bold">Contact <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent font-bold">Me</span></h2>
       <p className="text-xl max-w-2xl mx-auto leading-relaxed ">
         Want to work together? I&apos;d love to hear from you. Leave an email
         and I&apos;ll get back to you as soon as possible!
