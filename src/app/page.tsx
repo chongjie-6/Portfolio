@@ -32,9 +32,12 @@ export default function Home() {
         <MobileNav />
 
         <div className="flex flex-col items-center gap-12 z-10 relative max-w-6xl mx-auto md:pt-60 pt-30">
-          <div className="text-center space-y-10">  
+          <div className="text-center space-y-10">
             <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
-              Hi, I&apos;m <span className="text-blue-500">Chongjie</span>
+              Hi, I&apos;m{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Chongjie
+              </span>
             </h1>
 
             <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
