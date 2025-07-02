@@ -88,7 +88,7 @@ export function Projects() {
       <ProjectCard
         title={"AI Nutritionist"}
         images={AI_NUTRITIONIST_IMAGES}
-        link={"http://ec2-16-176-231-33.ap-southeast-2.compute.amazonaws.com/"}
+        link={""}
         description={
           "AI nutritionist that uses Gemini 2.5 to generate meals based on inputted macronutrients"
         }
