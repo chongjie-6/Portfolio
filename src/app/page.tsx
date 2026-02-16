@@ -69,7 +69,7 @@ export default function Home() {
             <div className="flex gap-6">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="group font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 text-stone-900 hover:text-stone-600"
+                className="cursor-pointer group font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 text-stone-900 hover:text-stone-600"
               >
                 View Work
                 <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
@@ -78,7 +78,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-500 hover:text-stone-900"
+                className="cursor-pointer font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-500 hover:text-stone-900"
               >
                 Contact
               </button>
