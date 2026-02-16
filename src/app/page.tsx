@@ -1,11 +1,11 @@
 "use client";
-import { About } from "@/components/ui/about";
-import { Contact } from "@/components/ui/contact";
-import { Footer } from "@/components/ui/footer";
-import { MobileNav } from "@/components/ui/mobileNav";
-import { NavBar } from "@/components/ui/navBar";
-import { Projects } from "@/components/ui/projects";
-import { ArrowRight, Briefcase, ChevronDown, Mail } from "lucide-react";
+
+import { About } from "./components/ui/About";
+import { NavBar } from "./components/ui/NavBar";
+import { MobileNav } from "./components/ui/MobileNav";
+import { Projects } from "./components/ui/Projects";
+import { Contact } from "./components/ui/Contact";
+import { Footer } from "./components/ui/Footer";
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -13,87 +13,95 @@ export default function Home() {
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
   return (
-    <div
-      className="bg-black/20 text-gray-100 space-y-15 md:space-y-50"
-      id="home"
-    >
+    <div className="text-stone-900 bg-[#f5f4f0]" id="home">
+      <NavBar />
+      <MobileNav />
+
       {/* Hero Section */}
-      <main className="bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
+      <main className="min-h-screen flex flex-col justify-end pb-20 px-8 md:px-16 lg:px-24 relative bg-[#f5f4f0]">
+        {/* Subtle grid texture */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(#c8c5bc 1px, transparent 1px), linear-gradient(90deg, #c8c5bc 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+
+        {/* Index label */}
+        <div className="absolute top-32 right-8 md:right-16 lg:right-24 text-right animate-fade-in [animation-delay:0.6s]">
+          <p className="font-mono text-xs tracking-widest uppercase text-stone-500">
+            Portfolio
+          </p>
+          <p className="font-mono text-xs tracking-widest text-stone-500">
+            2025
+          </p>
         </div>
-        {/* Desktop Navigation */}
-        <NavBar />
 
-        {/* Mobile Navigation */}
-        <MobileNav />
+        <div className="relative z-10 max-w-5xl">
+          {/* Overline */}
+          <p className="font-mono text-xs tracking-widest uppercase mb-8 text-stone-500 animate-fade-up [animation-delay:0.1s]">
+            Full-Stack Developer
+          </p>
 
-        <div className="flex flex-col items-center gap-12 z-10 relative max-w-6xl mx-auto md:pt-60 pt-30">
-          <div className="text-center space-y-10">
-            <h1 className="text-4xl md:text-7xl font-bold mb-4 select-none typewriter py-1">
-              Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Chongjie
-              </span>
-            </h1>
+          {/* Main heading */}
+          <h1
+            className="text-6xl md:text-8xl lg:text-[clamp(5rem,12vw,9rem)] leading-none mb-10 text-stone-900 animate-fade-up [animation-delay:0.2s]"
+            style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}
+          >
+            Chongjie
+            <br />
+            <em>Chen</em>
+          </h1>
 
-            <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
-              I craft engaging digital experiences with modern technologies.
-              <span className="text-blue-400 font-semibold">
-                {" "}
-                Let&apos;s build something amazing together.
-              </span>
+          {/* Divider */}
+          <div className="w-16 border-t border-stone-900 mb-10 animate-fade-up [animation-delay:0.35s]" />
+
+          {/* Sub copy + CTAs */}
+          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 items-start animate-fade-up [animation-delay:0.45s]">
+            <p className="text-sm leading-relaxed max-w-xs text-stone-600">
+              Crafting scalable software with clean code and deliberate design.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex gap-6">
               <button
                 onClick={() => scrollToSection("projects")}
-                className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-103 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center justify-center space-x-2"
+                className="group font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 text-stone-900 hover:text-stone-600"
               >
-                <Briefcase size={20} />
-                <span>View My Work</span>
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
+                View Work
+                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
               </button>
-
               <button
                 onClick={() => scrollToSection("contact")}
-                className="px-8 py-4 border-2 border-gray-600 hover:border-blue-400 text-gray-300 hover:text-white font-medium rounded-full transition-all duration-300 transform hover:scale-103 hover:bg-white/5 flex items-center justify-center space-x-2"
+                className="font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-500 hover:text-stone-900"
               >
-                <Mail size={20} />
-                <span>Get In Touch</span>
+                Contact
               </button>
             </div>
           </div>
+        </div>
 
-          {/* Hero image/avatar */}
-          <div className="flex flex-col justify-center items-center space-y-10">
-            <div className="hidden w-64 h-64 md:w-80 md:h-80 rounded-full bg-blue-100 dark:bg-blue-900 sm:flex items-center justify-center text-blue-500 text-6xl font-bold">
-              C
-            </div>
-            <div className="animate-bounce">
-              <ChevronDown size={64} className="text-gray-400" />
-            </div>
-          </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in [animation-delay:1s]">
+          <div className="w-px h-12 bg-stone-300 animate-pulse" />
+          <span className="font-mono text-xs tracking-widest uppercase text-stone-500">
+            Scroll
+          </span>
         </div>
       </main>
 
-      {/* About Section */}
-      <About></About>
-
-      {/* Projects Section */}
-      <Projects></Projects>
-
-      {/* Contact Me Section */}
-      <Contact></Contact>
-
-      {/* Footer */}
-      <Footer></Footer>
+      {/* Sections */}
+      <div className="space-y-32 md:space-y-48 bg-[#f5f4f0]">
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 }

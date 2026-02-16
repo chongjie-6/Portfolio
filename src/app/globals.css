@@ -1,161 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: theme('colors.gray.900');
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-@layer{
-  .btn {
-    @apply cursor-pointer p-2 sm:p-3 rounded-lg transition-all duration-100 font-bold hover:text-blue-400 inline-flex align-text-bottom items-center gap-2 text-gray-300 text-sm sm:text-base
-  }
-  .nav{
-    @apply mx-auto hidden md:flex items-center justify-between px-5
-  }
-  .list-item{
-    @apply flex items-start flex-col justify-center w-full max-w-4xl mx-auto border-2 p-4 sm:p-6 lg:p-8 rounded-xl gap-4 sm:gap-6 border-gray-500 bg-gray-800
-  }
-  .list-description{
-    @apply space-y-3 sm:space-y-4 lg:space-y-5
-  }
-  .list-title{
-    @apply font-bold text-2xl sm:text-3xl lg:text-4xl border-b-2 w-fit border-violet-500 pb-1 sm:pb-2
-  }
-  .list-text{
-    @apply text-lg sm:text-xl lg:text-2xl
-  }
-  .project_link{
-    @apply hover:text-blue-500 hover:-translate-y-1 transition-all duration-75 space-x-2
-  }
-  .skills_section{
-    @apply flex flex-row flex-wrap gap-2 sm:gap-3
-  }
-  .skills_tab{
-    @apply px-2 sm:px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-full text-xs sm:text-sm text-blue-300 hover:from-blue-500/30 hover:to-purple-500/30 transition-all duration-200 select-none whitespace-nowrap
-  }
-  .typewriter{
-    @apply inline-block relative w-fit overflow-hidden whitespace-nowrap m-0;
-    animation: typing 2s steps(32, end) forwards;
-  }
-  .typewriter::after {
-    content: "";
-    @apply absolute right-0 top-0 h-full w-1 bg-white;
-    animation: blinkCaret 0.75s step-end infinite;
-  }
+  background-color: #f5f4f0;
+  color: #111111;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: #c8f064;
+  color: #111111;
+}
+
+@layer base {
+  .btn {
+    @apply cursor-pointer px-4 py-2 font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-600 hover:text-stone-900;
+  }
+
+  .nav {
+    @apply mx-auto hidden md:flex items-center justify-between px-8;
+  }
+
+  .list-item {
+    @apply flex flex-col w-full max-w-3xl mx-auto gap-8 py-12 border-t border-stone-300;
+  }
+
+  .list-description {
+    @apply space-y-4;
+  }
+
+  .list-title {
+    @apply font-bold text-2xl sm:text-3xl text-stone-900;
+    font-family: "DM Serif Display", serif;
+  }
+
+  .list-text {
+    @apply text-base text-stone-600;
+  }
+
+  .project_link {
+    @apply inline-flex items-center gap-3 transition-all duration-200 hover:opacity-60;
+  }
+
+  .skills_section {
+    @apply flex flex-row flex-wrap gap-2;
+  }
+
+  .skills_tab {
+    @apply px-3 py-1 text-xs font-mono tracking-wider uppercase border border-stone-400 text-stone-700 bg-transparent transition-all duration-150 hover:border-stone-900 hover:text-stone-900;
+  }
+}
 
 @layer utilities {
-  @keyframes fadeInUp {
-    0% {
+  @keyframes fadeUp {
+    from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(24px);
     }
-    100% {
+    to {
       opacity: 1;
-      transform: translateY(0px);
+      transform: translateY(0);
     }
   }
 
-  @keyframes fadeInDown {
-    0% {
+  @keyframes fadeIn {
+    from {
       opacity: 0;
-      transform: translateY(-10px);
     }
-    100% {
+    to {
       opacity: 1;
-      transform: translateY(0px);
     }
   }
 
-  @keyframes fallInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-200px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes fallInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(200px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0px);
-    }
-  }
-
-  @keyframes slideInRight{
-    0% {
+  @keyframes slideRight {
+    from {
       opacity: 0;
       transform: translateX(-20px);
     }
-    100% {
+    to {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0);
     }
   }
 
-  @keyframes slideInLeft{
-    0% {
+  @keyframes slideLeft {
+    from {
       opacity: 0;
       transform: translateX(20px);
     }
-    100% {
+    to {
       opacity: 1;
-      transform: translateX(0px);
+      transform: translateX(0);
     }
   }
 
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  
-  @keyframes blinkCaret {
-    from, to { opacity: 0 }
-    50% { opacity: 1 }
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 1s ease-in-out;
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease both;
   }
 
   .animate-fade-in-down {
-    animation: fadeInDown 1s ease-in-out;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .animate-slide-in-right {
+    animation: slideRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .animate-slide-in-left {
+    animation: slideLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .animate-fall-up {
-    animation: fallInUp 0.7s ease-in-out;
+    animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .animate-fall-down {
-    animation: fallInDown 0.7s ease-in-out;
+    animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-
-  .animate-slide-in-right{
-    animation: slideInRight 1s ease-in-out;
-  }
-
-  .animate-slide-in-left{
-    animation: slideInLeft 1s ease-in-out;
-  }
-
 }
