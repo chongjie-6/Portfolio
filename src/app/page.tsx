@@ -6,6 +6,7 @@ import { MobileNav } from "./components/ui/MobileNav";
 import { Projects } from "./components/ui/Projects";
 import { Contact } from "./components/ui/Contact";
 import { Footer } from "./components/ui/Footer";
+import Particles from "./components/ui/Particles";
 
 export default function Home() {
   const scrollToSection = (id: string) => {
@@ -30,6 +31,20 @@ export default function Home() {
             backgroundSize: "80px 80px",
           }}
         />
+        <div className="absolute inset-0 pointer-events-none">
+          <Particles
+            particleColors={["#ffffff"]}
+            particleCount={300}
+            particleSpread={10}
+            speed={0.5}
+            particleBaseSize={200}
+            moveParticlesOnHover={false}
+            alphaParticles
+            disableRotation
+            pixelRatio={1}
+            className={"undefined"}
+          />
+        </div>
 
         {/* Index label */}
         <div className="absolute top-32 right-8 md:right-16 lg:right-24 text-right animate-fade-in [animation-delay:0.6s]">
@@ -37,7 +52,7 @@ export default function Home() {
             Portfolio
           </p>
           <p className="font-mono text-xs tracking-widest text-stone-500">
-            2025
+            2026
           </p>
         </div>
 
