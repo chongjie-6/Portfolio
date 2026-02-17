@@ -1,1 +1,3 @@
+User-agent: *
+Allow: /
 Sitemap: https://chongjie.vercel.app/sitemap.xml
