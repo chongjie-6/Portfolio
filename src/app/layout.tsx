@@ -41,6 +41,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="icon" href="/favicon.ico"/>
       </head>
       <body className="antialiased">{children}</body>
     </html>
