@@ -1,7 +1,28 @@
 import ProjectCard from "./ProjectCard";
+const MUSIC_GUESSER_IMAGES = [
+  {
+    src: "/music-guesser-home-page.png",
+    description: "Music Guesser home screen with game modes and start options",
+  },
+  {
+    src: "/music-guesser-multiplayer.png",
+    description: "Multiplayer lobby screen where players can create or join a room",
+  },
+  {
+    src: "/music-guesser-correct-guess.png",
+    description: "Correct guess confirmation screen showing points awarded",
+  },
+  {
+    src: "/music-guesser-winner-screen.png",
+    description: "Winner screen displaying final scores and game results",
+  },
+];
 
 const AI_NUTRITIONIST_IMAGES = [
-  { src: "/ai_landing.png", description: "Landing Page for AI Nutritionist App" },
+  {
+    src: "/ai_landing.png",
+    description: "Landing Page for AI Nutritionist App",
+  },
   { src: "/ai_current.png", description: "Current meal plan page" },
   { src: "/ai_macros.png", description: "Macronutrient settings page" },
   { src: "/ai_previous.png", description: "Previous meals page" },
@@ -9,7 +30,10 @@ const AI_NUTRITIONIST_IMAGES = [
 ];
 
 const FITNESS_APP_IMAGES = [
-  { src: "/fitness_landing.png", description: "Landing Page for Fitness Tracker" },
+  {
+    src: "/fitness_landing.png",
+    description: "Landing Page for Fitness Tracker",
+  },
   { src: "/fitness_dashboard.PNG", description: "Dashboard view" },
   { src: "/fitness_session.png", description: "Tracked workouts" },
   { src: "/fitness_session_exercise.png", description: "Add exercise modal" },
@@ -33,16 +57,35 @@ const FOOD_APP_IMAGES = [
 
 const PROJECTS = [
   {
-    index: "01",
+    title: "Music Guesser",
+    images: MUSIC_GUESSER_IMAGES,
+    link: "https://music-guesser.up.railway.app",
+    description:
+      "A multiplayer music guessing game built to play with friends. Players listen to song clips and race to guess the title. Built to experiment with real-time communication using WebSockets.",
+    skills: [
+      "TypeScript",
+      "WebSockets",
+      "PostgreSQL (PLpgSQL)",
+      "React",
+      "Node",
+    ],
+  },
+  {
     title: "AI Nutritionist",
     images: AI_NUTRITIONIST_IMAGES,
     link: "",
     description:
       "AI nutritionist that uses Gemini 2.5 to generate personalised meal plans based on inputted macronutrients.",
-    skills: ["TypeScript", "Next.js", "React", "DynamoDB", "AWS EC2", "Gemini 2.5 Flash"],
+    skills: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "DynamoDB",
+      "AWS EC2",
+      "Gemini 2.5 Flash",
+    ],
   },
   {
-    index: "02",
     title: "Fitness Tracker",
     images: FITNESS_APP_IMAGES,
     link: "https://fitness-app-bl5i.vercel.app/",
@@ -51,7 +94,6 @@ const PROJECTS = [
     skills: ["TypeScript", "Next.js", "React", "PostgreSQL", "TailwindCSS"],
   },
   {
-    index: "03",
     title: "Team Management App",
     images: TODO_APP_IMAGES,
     link: "",
@@ -60,7 +102,6 @@ const PROJECTS = [
     skills: ["TypeScript", "Next.js", "React", "PostgreSQL", "MaterialUI"],
   },
   {
-    index: "04",
     title: "Food Recommender",
     images: FOOD_APP_IMAGES,
     link: "https://my-app-azure-tau.vercel.app/",
@@ -93,8 +134,8 @@ export function Projects() {
 
       {/* Project list */}
       <ul className="space-y-0 list-none p-0 m-0">
-        {PROJECTS.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+        {PROJECTS.map((project, index) => (
+          <ProjectCard key={project.title} {...project} index={String(index)} />
         ))}
       </ul>
 
