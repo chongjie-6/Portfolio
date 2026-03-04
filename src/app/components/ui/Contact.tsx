@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -5,6 +6,21 @@ export function Contact() {
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [focused, setFocused] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const email = "chongjiechen@outlook.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback: silently ignore
+    }
+  };
+
+  const canSend = subject.trim().length > 0 || body.trim().length > 0;
 
   return (
     <section className="px-8 md:px-16 lg:px-24 max-w-6xl mx-auto" id="contact">
@@ -36,24 +52,78 @@ export function Contact() {
             <p className="font-mono text-xs tracking-widest uppercase text-stone-500">
               Email
             </p>
-            <a
-              href="mailto:chongjiechen@outlook.com"
-              className="text-sm text-stone-800 hover:text-stone-500 transition-colors duration-200"
-            >
-              chongjiechen@outlook.com
-            </a>
+            <div className="flex items-center gap-3">
+              <a
+                href={`mailto:${email}`}
+                className="text-sm text-stone-800 hover:text-stone-500 transition-colors duration-200"
+              >
+                {email}
+              </a>
+              {/* Copy to clipboard button */}
+              <button
+                onClick={handleCopyEmail}
+                aria-label="Copy email address to clipboard"
+                title={copied ? "Copied!" : "Copy email"}
+                className="text-stone-400 hover:text-stone-800 transition-colors duration-150"
+              >
+                {copied ? (
+                  /* checkmark */
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                ) : (
+                  /* copy icon */
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                )}
+              </button>
+            </div>
+            {copied && (
+              <p className="font-mono text-xs text-stone-500 animate-fade-in">
+                Copied to clipboard
+              </p>
+            )}
           </div>
         </div>
 
         {/* Right: form */}
         <div className="space-y-10">
           <div>
-            <label className="font-mono text-xs tracking-widest uppercase text-stone-500 block mb-2">
+            <label
+              htmlFor="contact-subject"
+              className="font-mono text-xs tracking-widest uppercase text-stone-600 block mb-2"
+            >
               Subject
             </label>
             <input
+              id="contact-subject"
               type="text"
               placeholder="What's this about?"
+              value={subject}
               onChange={(e) => setSubject(e.target.value)}
               onFocus={() => setFocused("subject")}
               onBlur={() => setFocused(null)}
@@ -64,12 +134,17 @@ export function Contact() {
           </div>
 
           <div>
-            <label className="font-mono text-xs tracking-widest uppercase text-stone-500 block mb-2">
+            <label
+              htmlFor="contact-message"
+              className="font-mono text-xs tracking-widest uppercase text-stone-600 block mb-2"
+            >
               Message
             </label>
             <textarea
+              id="contact-message"
               rows={5}
               placeholder="Tell me about your project…"
+              value={body}
               onChange={(e) => setBody(e.target.value)}
               onFocus={() => setFocused("message")}
               onBlur={() => setFocused(null)}
@@ -80,14 +155,27 @@ export function Contact() {
           </div>
 
           <Link
-            href={`mailto:chongjiechen@outlook.com?subject=${encodeURIComponent(
-              subject
-            )}&body=${encodeURIComponent(body)}`}
-            className="group inline-flex items-center gap-3 font-mono text-xs tracking-widest uppercase text-stone-900 hover:text-stone-500 transition-colors duration-200"
+            href={`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
+            aria-disabled={!canSend}
+            className={`group inline-flex items-center gap-3 font-mono text-xs tracking-widest uppercase transition-colors duration-200 ${
+              canSend
+                ? "text-stone-900 hover:text-stone-500"
+                : "text-stone-400 pointer-events-none"
+            }`}
           >
-            <span className="w-8 h-px bg-stone-900 inline-block group-hover:w-12 transition-all duration-300" />
+            <span
+              className={`h-px bg-current inline-block transition-all duration-300 ${
+                canSend ? "w-8 group-hover:w-12" : "w-8"
+              }`}
+            />
             Send Message
           </Link>
+
+          {!canSend && (
+            <p className="font-mono text-xs text-stone-400 -mt-6">
+              Fill in at least one field to send.
+            </p>
+          )}
         </div>
       </div>
     </section>

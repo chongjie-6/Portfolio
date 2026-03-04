@@ -58,7 +58,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl">
           {/* Overline */}
-          <p className="font-mono text-xs tracking-widest uppercase mb-8 text-stone-500 animate-fade-up [animation-delay:0.1s]">
+          <p className="font-mono text-xs tracking-widest uppercase mb-8 text-stone-600 animate-fade-up [animation-delay:0.1s]">
             Full-Stack Developer
           </p>
 
@@ -81,22 +81,53 @@ export default function Home() {
               Crafting scalable software with clean code and deliberate design.
             </p>
 
-            <div className="flex gap-6">
+            <div className="flex flex-wrap gap-4 items-center">
+              {/* Primary CTA */}
               <button
                 onClick={() => scrollToSection("projects")}
-                className="cursor-pointer group font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 text-stone-900 hover:text-stone-600"
+                className="cursor-pointer group font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 bg-stone-900 text-[#f5f4f0] px-5 py-2.5 hover:bg-stone-700"
+                aria-label="View my projects"
               >
                 View Work
                 <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
                   →
                 </span>
               </button>
+
+              {/* Secondary CTA */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="cursor-pointer font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-500 hover:text-stone-900"
+                className="cursor-pointer font-mono text-xs tracking-widest uppercase transition-all duration-200 text-stone-600 hover:text-stone-900 border-b border-transparent hover:border-stone-900 pb-0.5"
+                aria-label="Go to contact section"
               >
                 Contact
               </button>
+
+              {/* Resume download — place resume PDF at /public/resume.pdf */}
+              <a
+                href="/chongjie_chen_resume.pdf"
+                download="Chongjie_Chen_Resume.pdf"
+                className="group cursor-pointer font-mono text-xs tracking-widest uppercase transition-all duration-200 flex items-center gap-2 text-stone-500 hover:text-stone-900 border-b border-transparent hover:border-stone-500 pb-0.5"
+                aria-label="Download resume PDF"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Resume
+              </a>
             </div>
           </div>
         </div>

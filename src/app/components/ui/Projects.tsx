@@ -6,7 +6,8 @@ const MUSIC_GUESSER_IMAGES = [
   },
   {
     src: "/music-guesser-multiplayer.png",
-    description: "Multiplayer lobby screen where players can create or join a room",
+    description:
+      "Multiplayer lobby screen where players can create or join a room",
   },
   {
     src: "/music-guesser-correct-guess.png",
@@ -135,7 +136,11 @@ export function Projects() {
       {/* Project list */}
       <ul className="space-y-0 list-none p-0 m-0">
         {PROJECTS.map((project, index) => (
-          <ProjectCard key={project.title} {...project} index={String(index)} />
+          <ProjectCard
+            key={project.title}
+            {...project}
+            index={String(index + 1).padStart(2, "0")}
+          />
         ))}
       </ul>
 
